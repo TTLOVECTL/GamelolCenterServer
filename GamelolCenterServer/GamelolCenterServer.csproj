@@ -43,6 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AceNetFrame\ace\AbsHandleCenter.cs" />
+    <Compile Include="AceNetFrame\ace\auto\LengthEncoding.cs" />
+    <Compile Include="AceNetFrame\ace\auto\MessageEncoding.cs" />
+    <Compile Include="AceNetFrame\ace\auto\SocketModel.cs" />
+    <Compile Include="AceNetFrame\ace\ByteArray.cs" />
+    <Compile Include="AceNetFrame\ace\Delegate.cs" />
+    <Compile Include="AceNetFrame\ace\NetServer.cs" />
+    <Compile Include="AceNetFrame\ace\SendtoClient.cs" />
+    <Compile Include="AceNetFrame\ace\SerializeUtil.cs" />
+    <Compile Include="AceNetFrame\ace\UserToken.cs" />
+    <Compile Include="AceNetFrame\ace\UserTokenPool.cs" />
+    <Compile Include="HanderInterface.cs" />
+    <Compile Include="HandlerCenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
