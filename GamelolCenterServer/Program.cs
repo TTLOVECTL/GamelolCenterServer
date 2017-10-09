@@ -23,7 +23,7 @@ namespace GamelolCenterServer
                 server.serEncode = MessageEncoding.Encode;
                 server.center = new HandlerCenter();
                 server.init();
-                server.Start(2000);
+                server.Start(2001);
             }
             catch (Exception e)
             {

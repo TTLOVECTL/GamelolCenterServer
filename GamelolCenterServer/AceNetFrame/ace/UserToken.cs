@@ -115,7 +115,7 @@ namespace AceNetFrame.ace
             if (sDecode == null) throw new Exception("message decode process is null");
             if (messageReceive == null) throw new Exception("messageReceive process is null");
             object message=sDecode(buffer);
-            messageReceive(this,message);                
+            messageReceive(this,message);
             onData ();
         }
 
