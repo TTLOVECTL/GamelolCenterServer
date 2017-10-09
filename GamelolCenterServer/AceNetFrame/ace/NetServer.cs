@@ -11,7 +11,6 @@ namespace AceNetFrame.ace
 {
     public class NetServer
     {
-        private int count = 0;
         /// <summary>
         /// 服务连接对象
         /// </summary>
@@ -126,9 +125,8 @@ namespace AceNetFrame.ace
         /// <param name="e"></param>
         private void ProcessAccept(SocketAsyncEventArgs e)
         {
-            count++;
-            Console.WriteLine("客户端连接，当前第" + count + "为用户登录");
             UserToken userToken = userPool.pop();
+            Console.WriteLine("用户登录服务器");
             userToken.clientSocket = e.AcceptSocket;
             StartReceive(userToken);
             StartAccept(e);

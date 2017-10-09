@@ -9,6 +9,11 @@ namespace AceNetFrame.ace
     public class UserToken
     {
         /// <summary>
+        /// 登录用户玩家ID
+        /// </summary>
+        public int playerId=0;
+
+        /// <summary>
         /// 接受信息异步事件
         /// </summary>
         public SocketAsyncEventArgs receiveEvent;

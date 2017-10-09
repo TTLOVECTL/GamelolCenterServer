@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D6CE408-00DE-4F50-8215-D7740AD28FE8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>GamelolCenterServer</RootNamespace>
-    <AssemblyName>GamelolCenterServer</AssemblyName>
+    <ProjectGuid>{100091D2-0F4F-493F-9635-191F74BAD7BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SerializableDataMessage</RootNamespace>
+    <AssemblyName>SerializableDataMessage</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,10 +33,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,43 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AceNetFrame\ace\AbsHandleCenter.cs" />
-    <Compile Include="AceNetFrame\ace\auto\LengthEncoding.cs" />
-    <Compile Include="AceNetFrame\ace\auto\MessageEncoding.cs" />
-    <Compile Include="AceNetFrame\ace\auto\SocketModel.cs" />
-    <Compile Include="AceNetFrame\ace\ByteArray.cs" />
-    <Compile Include="AceNetFrame\ace\Delegate.cs" />
-    <Compile Include="AceNetFrame\ace\NetServer.cs" />
-    <Compile Include="AceNetFrame\ace\SendtoClient.cs" />
-    <Compile Include="AceNetFrame\ace\SerializeUtil.cs" />
-    <Compile Include="AceNetFrame\ace\UserToken.cs" />
-    <Compile Include="AceNetFrame\ace\UserTokenPool.cs" />
-    <Compile Include="HanderInterface.cs" />
-    <Compile Include="HandlerCenter.cs" />
-    <Compile Include="HandlerTool\AuthenticationHandler.cs" />
-    <Compile Include="HandlerTool\PropetryHandler.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="AuthenticationMessage.cs" />
+    <Compile Include="GoodType.cs" />
+    <Compile Include="MarketMessage.cs" />
+    <Compile Include="MoneyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropetryServer\PropetryNetWork.cs" />
-    <Compile Include="Util\ConfigurationSetting.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="GamelolCenter中心服务器指定集.xlsx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SerializableDataMessage\SerializableDataMessage.csproj">
-      <Project>{100091d2-0f4f-493f-9635-191f74bad7bd}</Project>
-      <Name>SerializableDataMessage</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LogServer\" />
-    <Folder Include="MatchServer\" />
-    <Folder Include="SocialServer\" />
+    <Compile Include="PropType.cs" />
+    <Compile Include="SerializableType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
