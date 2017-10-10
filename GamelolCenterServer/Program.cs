@@ -32,7 +32,10 @@ namespace GamelolCenterServer
                 Console.WriteLine(e.Source);
                 Console.WriteLine(e.Message);
             }
-            SystemLogSystem.Instance.SendMessageToLogServer();
+            while (true) {
+                Thread.Sleep(60000000);
+            }
+            //SystemLogSystem.Instance.SendMessageToLogServer();
 
         }
         
