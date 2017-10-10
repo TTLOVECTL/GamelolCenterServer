@@ -10,11 +10,11 @@ using System.IO;
 using GamelolCenterServer.Util;
 using System.Threading;
 using SerializableDataMessage;
-namespace GamelolCenterServer.PropetryServer
+namespace GamelolCenterServer.LogServer
 {
-    public class PropetryNetWork
+    public class LogNetWork
     {
-        private static PropetryNetWork instance=null;
+        private static LogNetWork instance = null;
 
         private byte[] readBuff = new byte[1024];
 
@@ -26,13 +26,13 @@ namespace GamelolCenterServer.PropetryServer
 
         private static bool isInit = true;
 
-        public static PropetryNetWork Instance
+        public static LogNetWork Instance
         {
             get
             {
                 if (instance == null || !isInit)
                 {
-                    instance = new PropetryNetWork();
+                    instance = new LogNetWork();
                     instance.init();
                 }
 
@@ -46,7 +46,7 @@ namespace GamelolCenterServer.PropetryServer
             try
             {
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                socket.Connect(ConfigurationSetting.GetConfigurationValue("propetryServerIP"), int.Parse(ConfigurationSetting.GetConfigurationValue("propetryServerPort")));
+                socket.Connect(ConfigurationSetting.GetConfigurationValue("logServerIP"), int.Parse(ConfigurationSetting.GetConfigurationValue("logServerPort")));
                 socket.BeginReceive(readBuff, 0, 1024, SocketFlags.None, ReceiveCallBack, readBuff);
                 Console.WriteLine("连接服务器成功");
                 isInit = true;
@@ -58,8 +58,9 @@ namespace GamelolCenterServer.PropetryServer
             }
         }
 
-        public void write(SocketModel socketModel) {
-            write(socketModel.type,socketModel.area,socketModel.command,socketModel.message);
+        public void write(SocketModel socketModel)
+        {
+            write(socketModel.type, socketModel.area, socketModel.command, socketModel.message);
         }
 
         public void write(int type, int area, int command, object message)
@@ -82,7 +83,7 @@ namespace GamelolCenterServer.PropetryServer
             }
             catch (Exception e)
             {
-                 Console.WriteLine("网络错误，请重新登录" + e.Message);
+                Console.WriteLine("网络错误，请重新登录" + e.Message);
             }
         }
 
@@ -178,17 +179,9 @@ namespace GamelolCenterServer.PropetryServer
             return sm;
         }
 
-        private void MessageManager(object model) {
-            SocketModel socketModel = (SocketModel)model;
-            UserToken userToken = null;
-            if (HandlerCenter.playerToken.ContainsKey(socketModel.type))
-                userToken = HandlerCenter.playerToken[socketModel.type];
-            if (userToken == null)
-            {
-                return;
-            }
-            socketModel.type = (int)SerializableType.PROPETRY_TYPE;
-            SendtoClient.write(userToken, socketModel);
+        private void MessageManager(object model)
+        {
+           
         }
 
     }

@@ -59,6 +59,8 @@
     <Compile Include="HandlerCenter.cs" />
     <Compile Include="HandlerTool\AuthenticationHandler.cs" />
     <Compile Include="HandlerTool\PropetryHandler.cs" />
+    <Compile Include="LogServer\LogNetWork.cs" />
+    <Compile Include="LogServer\SystemLogSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropetryServer\PropetryNetWork.cs" />
@@ -72,13 +74,16 @@
     <Content Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LogServerDataMessage\LogServerDataMessage.csproj">
+      <Project>{6882133c-c4b1-4613-ade1-475cd47224e8}</Project>
+      <Name>LogServerDataMessage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SerializableDataMessage\SerializableDataMessage.csproj">
       <Project>{100091d2-0f4f-493f-9635-191f74bad7bd}</Project>
       <Name>SerializableDataMessage</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LogServer\" />
     <Folder Include="MatchServer\" />
     <Folder Include="SocialServer\" />
   </ItemGroup>

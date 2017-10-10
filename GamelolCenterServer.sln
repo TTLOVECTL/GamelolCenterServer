@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamelolCenterServer", "Game
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializableDataMessage", "SerializableDataMessage\SerializableDataMessage.csproj", "{100091D2-0F4F-493F-9635-191F74BAD7BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogServerDataMessage", "LogServerDataMessage\LogServerDataMessage.csproj", "{6882133C-C4B1-4613-ADE1-475CD47224E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{100091D2-0F4F-493F-9635-191F74BAD7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{100091D2-0F4F-493F-9635-191F74BAD7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{100091D2-0F4F-493F-9635-191F74BAD7BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6882133C-C4B1-4613-ADE1-475CD47224E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6882133C-C4B1-4613-ADE1-475CD47224E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6882133C-C4B1-4613-ADE1-475CD47224E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6882133C-C4B1-4613-ADE1-475CD47224E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

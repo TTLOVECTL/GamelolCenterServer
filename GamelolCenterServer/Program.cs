@@ -5,7 +5,8 @@ using System.Runtime.InteropServices;
 using AceNetFrame.ace;
 using AceNetFrame.ace.auto;
 using System.Threading;
-
+using GamelolCenterServer.Util;
+using GamelolCenterServer.LogServer;
 namespace GamelolCenterServer
 {
     class Program
@@ -16,14 +17,14 @@ namespace GamelolCenterServer
 
             try
             {
-                NetServer server = new NetServer(100);
+                NetServer server = new NetServer(1000);
                 server.lengthEncode = LengthEncoding.encode;
                 server.lengthDecode = LengthEncoding.decode;
                 server.serDecode = MessageEncoding.Decode;
                 server.serEncode = MessageEncoding.Encode;
                 server.center = new HandlerCenter();
                 server.init();
-                server.Start(2001);
+                server.Start(int.Parse(ConfigurationSetting.GetConfigurationValue("centerServerPort")));
             }
             catch (Exception e)
             {
@@ -31,10 +32,7 @@ namespace GamelolCenterServer
                 Console.WriteLine(e.Source);
                 Console.WriteLine(e.Message);
             }
-            while (true)
-            {
-                Thread.Sleep(360000);
-            }
+            SystemLogSystem.Instance.SendMessageToLogServer();
 
         }
         

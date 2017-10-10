@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AceNetFrame.ace;
 using AceNetFrame.ace.auto;
+using GamelolCenterServer.PropetryServer;
 
 namespace GamelolCenterServer.HandlerTool
 {
@@ -19,7 +20,7 @@ namespace GamelolCenterServer.HandlerTool
         {
             message.type = token.playerId;
             //信息转发给商场、道具等服务器
-
+            PropetryNetWork.Instance.write(message);
         }
     }
 }
