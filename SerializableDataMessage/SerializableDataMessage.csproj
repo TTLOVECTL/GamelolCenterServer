@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="AuthenticationMessage.cs" />
     <Compile Include="GoodType.cs" />
+    <Compile Include="MarketCommand.cs" />
     <Compile Include="MarketMessage.cs" />
     <Compile Include="MoneyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

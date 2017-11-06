@@ -7,7 +7,7 @@ using AceNetFrame.ace;
 using AceNetFrame.ace.auto;
 using SerializableDataMessage;
 using GamelolCenterServer.PropetryServer;
-
+using LitJson;
 namespace GamelolCenterServer.HandlerTool
 {
     public class AuthenticationHandler : HanderInterface
@@ -19,10 +19,10 @@ namespace GamelolCenterServer.HandlerTool
 
         public void MessageRecevie(UserToken token, SocketModel message)
         {
-            AuthenticationMessage authenticationMessage = message.getMessage<AuthenticationMessage>();
+            AuthenticationMessage authenticationMessage =JsonMapper.ToObject<AuthenticationMessage>(message.getMessage<string>());
             token.playerId = authenticationMessage.playerId;
             HandlerCenter.playerToken.Add(token.playerId, token);
-            PropetryNetWork.Instance.write(message);
+            //PropetryNetWork.Instance.write(message);
         }
     }
 }

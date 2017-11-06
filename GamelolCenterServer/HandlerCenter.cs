@@ -22,7 +22,7 @@ namespace GamelolCenterServer
         }
         public override void ClientClose(UserToken token, string error)
         {
-            Console.WriteLine("玩家"+token.playerId+"断开了连接");
+            Console.WriteLine("玩家ID:"+token.playerId+"断开了连接");
             if (HandlerCenter.playerToken.ContainsKey(token.playerId)) {
                 HandlerCenter.playerToken.Remove(token.playerId);
             }
@@ -32,6 +32,7 @@ namespace GamelolCenterServer
         public override void MessageRecive(UserToken token, object message)
         {
             SocketModel modle = message as SocketModel;
+            Console.WriteLine(modle.getMessage<string>());
             switch ((SerializableType)modle.type) {
                 case SerializableType.AUTHENTICATION_TYPE:
                     authenticationHandler.MessageRecevie(token,modle);
