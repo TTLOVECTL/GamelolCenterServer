@@ -8,6 +8,7 @@ using AceNetFrame.ace.auto;
 using SerializableDataMessage;
 using GamelolCenterServer.PropetryServer;
 using LitJson;
+
 namespace GamelolCenterServer.HandlerTool
 {
     public class AuthenticationHandler : HanderInterface

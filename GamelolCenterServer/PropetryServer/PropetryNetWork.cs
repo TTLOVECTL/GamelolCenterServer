@@ -12,6 +12,9 @@ using System.Threading;
 using SerializableDataMessage;
 namespace GamelolCenterServer.PropetryServer
 {
+    /// <summary>
+    /// 中心服务器连接商场服务器
+    /// </summary>
     public class PropetryNetWork
     {
         private static PropetryNetWork instance=null;
@@ -48,12 +51,12 @@ namespace GamelolCenterServer.PropetryServer
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 socket.Connect(ConfigurationSetting.GetConfigurationValue("propetryServerIP"), int.Parse(ConfigurationSetting.GetConfigurationValue("propetryServerPort")));
                 socket.BeginReceive(readBuff, 0, 1024, SocketFlags.None, ReceiveCallBack, readBuff);
-                Console.WriteLine("连接服务器成功");
+                Console.WriteLine("连接商场服务器成功");
                 isInit = true;
             }
             catch (Exception e)
             {
-                Console.WriteLine("连接服务器失败" + e.Message);
+                Console.WriteLine("连接商场服务器失败" + e.Message);
                 isInit = false;
             }
         }

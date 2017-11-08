@@ -13,12 +13,16 @@ namespace GamelolCenterServer
     {
         private HanderInterface authenticationHandler = null;
         private HanderInterface propetryHandler = null;
+        private HanderInterface matchHandle = null;
+        private HanderInterface socialHandler = null;
 
         public static SortedDictionary<int, UserToken> playerToken = new SortedDictionary<int, UserToken>();
 
         public HandlerCenter() {
             authenticationHandler = new AuthenticationHandler();
             propetryHandler = new PropetryHandler();
+            matchHandle = new MatchHandler();
+            socialHandler = new SocialHandler();
         }
         public override void ClientClose(UserToken token, string error)
         {
@@ -43,6 +47,21 @@ namespace GamelolCenterServer
                     }
                     propetryHandler.MessageRecevie(token,modle);
                     break;
+                case SerializableType.SOCIAL_TYPE:
+                    if (token.playerId == 0)
+                    {
+                        return;
+                    }
+                    socialHandler.MessageRecevie(token, modle);
+                    break;
+                case SerializableType.MATCH_TYPE:
+                    if (token.playerId == 0)
+                    {
+                        return;
+                    }
+                    matchHandle.MessageRecevie(token, modle);
+                    break;
+
             }
         }
     }

@@ -10,6 +10,8 @@ namespace SerializableDataMessage
     {
         AUTHENTICATION_TYPE,
         PROPETRY_TYPE,
-        SOCIAL_TYPE
+        SOCIAL_TYPE,
+        MATCH_TYPE
+        
     }
 }

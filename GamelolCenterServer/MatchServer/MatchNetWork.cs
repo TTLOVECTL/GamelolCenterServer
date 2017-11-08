@@ -11,14 +11,15 @@ using GamelolCenterServer.Util;
 using System.Threading;
 using SerializableDataMessage;
 
-namespace GamelolCenterServer.LogServer
+
+namespace GamelolCenterServer.MatchServer
 {
     /// <summary>
-    /// 中心服务器连接日志服务器
+    /// 中心服务器连接匹配服务器
     /// </summary>
-    public class LogNetWork
+    public class MatchNetWork
     {
-        private static LogNetWork instance = null;
+        private static MatchNetWork instance = null;
 
         private byte[] readBuff = new byte[1024];
 
@@ -30,13 +31,13 @@ namespace GamelolCenterServer.LogServer
 
         private static bool isInit = true;
 
-        public static LogNetWork Instance
+        public static MatchNetWork Instance
         {
             get
             {
                 if (instance == null || !isInit)
                 {
-                    instance = new LogNetWork();
+                    instance = new MatchNetWork();
                     instance.init();
                 }
 
@@ -50,14 +51,14 @@ namespace GamelolCenterServer.LogServer
             try
             {
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                socket.Connect(ConfigurationSetting.GetConfigurationValue("logServerIP"), int.Parse(ConfigurationSetting.GetConfigurationValue("logServerPort")));
+                socket.Connect(ConfigurationSetting.GetConfigurationValue("matchServerIP"), int.Parse(ConfigurationSetting.GetConfigurationValue("matchServerPort")));
                 socket.BeginReceive(readBuff, 0, 1024, SocketFlags.None, ReceiveCallBack, readBuff);
-                Console.WriteLine("连接日志服务器成功");
+                Console.WriteLine("连接匹配服务器成功......");
                 isInit = true;
             }
             catch (Exception e)
             {
-                Console.WriteLine("连接日志服务器失败" + e.Message);
+                Console.WriteLine("连接匹配服务器失败" + e.Message);
                 isInit = false;
             }
         }
@@ -185,8 +186,16 @@ namespace GamelolCenterServer.LogServer
 
         private void MessageManager(object model)
         {
-           
+            SocketModel socketModel = (SocketModel)model;
+            UserToken userToken = null;
+            if (HandlerCenter.playerToken.ContainsKey(socketModel.type))
+                userToken = HandlerCenter.playerToken[socketModel.type];
+            if (userToken == null)
+            {
+                return;
+            }
+            socketModel.type = (int)SerializableType.MATCH_TYPE;
+            SendtoClient.write(userToken, socketModel);
         }
-
     }
 }

@@ -9,6 +9,9 @@ using System.Runtime.InteropServices;
 using GamelolCenterServer.Util;
 namespace GamelolCenterServer.LogServer
 {
+    /// <summary>
+    /// 获取系统日志信息，将其发送给日志服务器
+    /// </summary>
     public class SystemLogSystem
     {
         private  static SystemLogSystem instance=null;
