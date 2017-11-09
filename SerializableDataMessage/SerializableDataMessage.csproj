@@ -59,5 +59,8 @@
     <Compile Include="PropType.cs" />
     <Compile Include="SerializableType.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SocialMessage\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
