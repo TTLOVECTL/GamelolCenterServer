@@ -50,17 +50,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationMessage.cs" />
-    <Compile Include="GoodType.cs" />
-    <Compile Include="MarketCommand.cs" />
-    <Compile Include="MarketMessage.cs" />
-    <Compile Include="MoneyType.cs" />
+    <Compile Include="ProetryMessage\Enum\GoodType.cs" />
+    <Compile Include="ProetryMessage\Enum\MarketCommand.cs" />
+    <Compile Include="ProetryMessage\Class\MarketMessage.cs" />
+    <Compile Include="ProetryMessage\Enum\MoneyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropetryArea.cs" />
-    <Compile Include="PropType.cs" />
+    <Compile Include="ProetryMessage\Enum\PropetryArea.cs" />
+    <Compile Include="ProetryMessage\Enum\PropType.cs" />
     <Compile Include="SerializableType.cs" />
+    <Compile Include="SocialMessage\Class\ApplyMessage.cs" />
+    <Compile Include="SocialMessage\Class\ChatMessage.cs" />
+    <Compile Include="SocialMessage\Class\FriendMessage.cs" />
+    <Compile Include="SocialMessage\Class\OnlineMessage.cs" />
+    <Compile Include="SocialMessage\Enum\ChatCommand.cs" />
+    <Compile Include="SocialMessage\Enum\FriendCommand.cs" />
+    <Compile Include="SocialMessage\Enum\SocialArea.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SocialMessage\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

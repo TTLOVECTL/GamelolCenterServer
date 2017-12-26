@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SerializableDataMessage
+namespace SerializableDataMessage.SocialMessage.Class
 {
     /// <summary>
-    /// 商场商品种类
+    /// 上下线通知信息类
     /// </summary>
-    public enum GoodType
+    public class OnlineMessage
     {
         /// <summary>
-        /// 符文
+        /// 玩家ID
         /// </summary>
-        INSCRIPTION,
+        public int onlinePlayerId;
 
         /// <summary>
-        /// 英雄
+        /// 是否在线
         /// </summary>
-        HERO
+        public bool isOnline;
     }
 }

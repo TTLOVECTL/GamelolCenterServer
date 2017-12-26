@@ -63,7 +63,7 @@ namespace AceNetFrame.ace
         /// </summary>
         public void init()
         {
-            Console.WriteLine("服务器已经启动，端口号为：【"+ ConfigurationSetting.GetConfigurationValue("centerServerPort") + "】");
+            Console.WriteLine("中心控制服务器已经启动，端口号为：【"+ ConfigurationSetting.GetConfigurationValue("centerServerPort") + "】");
             userPool = new UserTokenPool(100);
             maxAcceptClient = new Semaphore(userMax, userMax);
             if (serEncode == null || serDecode == null) throw new Exception(" message encode or decode is null");

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SerializableDataMessage
+namespace SerializableDataMessage.ProetryMessage.Enum
 {
     /// <summary>
     /// 道具种类

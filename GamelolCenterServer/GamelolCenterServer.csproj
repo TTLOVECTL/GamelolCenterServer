@@ -72,6 +72,7 @@
     <Compile Include="PropetryServer\PropetryNetWork.cs" />
     <Compile Include="SocialServer\SocialNetWork.cs" />
     <Compile Include="Util\ConfigurationSetting.cs" />
+    <Compile Include="Util\InputFormat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

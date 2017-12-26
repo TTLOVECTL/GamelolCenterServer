@@ -21,6 +21,7 @@ namespace GamelolCenterServer.HandlerTool
             message.type = token.playerId;
             ///将信息转发给社交服务器
             SocialNetWork.Instance.write(message);
+
         }
     }
 }

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SerializableDataMessage.ProetryMessage.Enum;
 using System.Threading.Tasks;
 
-namespace SerializableDataMessage
+namespace SerializableDataMessage.ProetryMessage.Class
 {
     /// <summary>
     /// 商场信息类

@@ -4,33 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SerializableDataMessage
+namespace SerializableDataMessage.SocialMessage.Class
 {
     /// <summary>
-    /// 货币种类
+    /// 玩家之间的聊天信息
     /// </summary>
-    public enum MoneyType
+    public class ChatMessage
     {
         /// <summary>
-        /// 金币
+        /// 发送者ID
         /// </summary>
-        GOLD,
+        public int SenderID;
 
         /// <summary>
-        /// 钻石
+        /// 接受者ID
         /// </summary>
-        DIAMONDS,
+        public int reciverId;
 
         /// <summary>
-        /// 点券
+        /// 聊天信息内容
         /// </summary>
-        VOLUME,
-
-        /// <summary>
-        /// 符文碎片
-        /// </summary>
-        INSCRIPTION
-
+        public string message;
 
     }
 }

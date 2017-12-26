@@ -10,6 +10,7 @@ using System.IO;
 using GamelolCenterServer.Util;
 using System.Threading;
 using SerializableDataMessage;
+using SerializableDataMessage.SocialMessage.Enum;
 
 namespace GamelolCenterServer.SocialServer
 {
@@ -39,7 +40,6 @@ namespace GamelolCenterServer.SocialServer
                     instance = new SocialNetWork();
                     instance.init();
                 }
-
 
                 return instance;
             }
@@ -186,15 +186,27 @@ namespace GamelolCenterServer.SocialServer
         private void MessageManager(object model)
         {
             SocketModel socketModel = (SocketModel)model;
-            UserToken userToken = null;
-            if (HandlerCenter.playerToken.ContainsKey(socketModel.type))
-                userToken = HandlerCenter.playerToken[socketModel.type];
-            if (userToken == null)
+            InputFormat.ConsoleWriteLineMessage("来自于社交服务器",LitJson.JsonMapper.ToJson(socketModel));
+            if ((ChatCommand)socketModel.command == ChatCommand.ALL_COMMAND)
             {
-                return;
+                socketModel.type = (int)SerializableType.SOCIAL_TYPE;
+                foreach (KeyValuePair<int, UserToken> value in HandlerCenter.playerToken)
+                {
+                    SendtoClient.write(value.Value, socketModel);
+                }
             }
-            socketModel.type = (int)SerializableType.SOCIAL_TYPE;
-            SendtoClient.write(userToken, socketModel);
+            else {
+                UserToken userToken = null;
+                if (HandlerCenter.playerToken.ContainsKey(socketModel.type))
+                    userToken = HandlerCenter.playerToken[socketModel.type];
+                if (userToken == null)
+                {
+                    return;
+                }
+                socketModel.type = (int)SerializableType.SOCIAL_TYPE;
+                SendtoClient.write(userToken, socketModel);
+            }
+
         }
     }
 }
